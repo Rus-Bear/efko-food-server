@@ -5,8 +5,8 @@ class ProductsService {
         return Product.find()
     }
 
-    async addProduct(name, category, price, params) {
-        return await Product.create({name, category, price, params})
+    async addProduct(name, category, price, calories, params) {
+        return await Product.create({name, category, price, calories, params})
     }
 
     async deleteProductById(id) {

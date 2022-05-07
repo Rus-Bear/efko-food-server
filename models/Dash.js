@@ -1,9 +1,10 @@
-const {Schema, model} = require("mongoose")
+const {Schema, model, Types} = require("mongoose")
 
-const Product = new Schema({
+const Dash = new Schema({
     name: {type: String, unique: true, required: true},
-    category: {type: String, required: true}, // if not category === "all"
-    price: {type: Number, required: true},
+    photoUrl: {type: String},
+    recipeUrl: {type: String},
+    products: {type: [Types.ObjectId], required: true, ref: 'Product', default: []},
     calories: {type: Number, required: true, default: 0},
     params: {
         proteins: {type: Number, required: true, default: 0},
@@ -12,4 +13,4 @@ const Product = new Schema({
     }
 })
 
-module.exports = model('Product', Product)
+module.exports = model('Dash', Dash)

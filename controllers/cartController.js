@@ -3,9 +3,9 @@ const cartService = require('../services/cartService')
 class CartController {
     async generateCart(req, res, next) {
         try {
-            const {products, ceilParam, ceilFunc} = req.body
+            const {products, ceilParam, ceilFunc, userInfo} = req.body
 
-            await cartService.sendToFileInfo(products, ceilParam, ceilFunc)
+            await cartService.sendToFileInfo(products, ceilParam, ceilFunc, userInfo)
 
             const spawn = require("child_process").spawn;
             const pythonProcess = spawn('python',["pythonScripts/simplex.py"]);

@@ -6,6 +6,7 @@ require("dotenv").config()
 
 const productsRouter = require("./routes/productsRouter")
 const cartRouter = require("./routes/cartRouter")
+const dashesRouter = require("./routes/dashesRouter")
 const testsRouter = require("./routes/testsRouter")
 const errorMiddleware = require('./middlewares/errorMiddleware')
 
@@ -23,6 +24,7 @@ app.use(cors({
 
 app.use("/products", productsRouter)
 app.use("/cart", cartRouter)
+app.use("/dashes", dashesRouter)
 app.use("/tests", testsRouter)
 
 app.use(errorMiddleware)

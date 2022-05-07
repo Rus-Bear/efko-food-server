@@ -13,9 +13,9 @@ class ProductsController {
 
     async addProduct(req, res, next) {
         try {
-            const {name, category, price, params} = req.body
+            const {name, category, price, calories, params} = req.body
 
-            const product = await productsService.addProduct(name, category, price, params)
+            const product = await productsService.addProduct(name, category, price, calories, params)
 
             res.status(200).json(product)
         } catch (e) {
